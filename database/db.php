@@ -75,11 +75,10 @@ $dischi = [
 
 // $testo = $_GET['arrivato'];
 
-// if ($testo) {
-//     header('Content-Type: application/json');
-//     echo json_encode($dischi);
-    
-// }
+if ($_GET) {
+    header('Content-Type: application/json');
+    echo json_encode($dischi);
+}
 
 // var_dump($dischi);
 

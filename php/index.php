@@ -26,17 +26,13 @@
     <body>
         <header>
             <div class="cont">
-                <img src="logo.png" alt="logo" />
+                <img src="../logo.png" alt="logo" />
             </div>
         </header>
 
         <div class="select">
             <select class="custom-select">
                 <option selected data = "tutto">Scegli il genere musicale - All</option>
-                <option value="Pop">Pop</option>
-                <option value="Rock">Rock</option>
-                <option value="Metal">Metal</option>
-                <option value= "Jazz">Jazz</option>
             </select>
         </div>
 
@@ -44,7 +40,7 @@
             <?php
                 foreach ($dischi as $lista) {
             ?>
-            <div class="cds-container containerx main-visible" data-genere = '{{genre}}'>
+            <div class="cds-container containerx main-visible" data-autore ="<?php echo $lista['author']?>">
                 <div class="cd">
                     <img src=<?php echo $lista['poster'];?> alt="">
                     <h3><?php echo $lista['title'];?></h3>

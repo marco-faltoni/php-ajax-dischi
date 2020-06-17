@@ -13,17 +13,13 @@
     <body>
         <header>
             <div class="cont">
-                <img src="logo.png" alt="logo" />
+                <img src="../logo.png" alt="logo" />
             </div>
         </header>
 
         <div class="select">
             <select class="custom-select">
                 <option selected data = "tutto">Scegli il genere musicale - All</option>
-                <option value="Pop">Pop</option>
-                <option value="Rock">Rock</option>
-                <option value="Metal">Metal</option>
-                <option value= "Jazz">Jazz</option>
             </select>
         </div>
 
@@ -32,7 +28,7 @@
         </div>
 
         <script id="template-handlebars" type="text/x-handlebars-template">
-            <div class="cds-container containerx main-visible" data-genere = '{{genre}}'>
+            <div class="cds-container containerx main-visible" data-autore = '{{author}}'>
                 <div class="cd">
                     <img src="{{poster}}" alt="">
                     <h3>{{title}}</h3>

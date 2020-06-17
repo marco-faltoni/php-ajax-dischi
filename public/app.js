@@ -97,12 +97,9 @@ $(document).ready(function () {
   // creo una var vuota da richiamare dentro l'AJAX
   var array_dischi; // creo una variabile uguale ad un oggetto vuoto.
 
-  var disco1 = {}; // imposto e creo il templete handlebars da richiamre poi nella funzione
-
-  var template_html = $('#template-handlebars').html();
-  var template = Handlebars.compile(template_html);
+  var disco1 = {};
   $.ajax({
-    'url': '../database/db-ajax.php',
+    'url': '../database/db.php',
     'method': 'GET',
     'data': {
       'arrivato': 'ok'
@@ -112,6 +109,23 @@ $(document).ready(function () {
       array_dischi = data; // richiamo la funzione di associazione data - disco
 
       associo_dischi();
+    },
+    'error': function error() {
+      alert('si è verificato un errore');
+    }
+  });
+  $.ajax({
+    'url': '../database/db.php',
+    'method': 'GET',
+    'data': {
+      'arrivato': 'ok'
+    },
+    'success': function success(data) {
+      for (var i = 0; i < data.length; i++) {
+        var option_container = $('.custom-select');
+        var artisti = data[i];
+        option_container.append('<option value="' + artisti.author + '">' + artisti.author + '</option>');
+      }
     },
     'error': function error() {
       alert('si è verificato un errore');
@@ -134,9 +148,27 @@ $(document).ready(function () {
 
 
   function handlebars(disco) {
+    // imposto e creo il templete handlebars da richiamre poi nella funzione
+    var template_html = $('#template-handlebars').html();
+    var template = Handlebars.compile(template_html);
     var html = template(disco);
     $('.disco').append(html);
-  }
+  } // clicclando sul menu a tendina (select) assegno l'attributo "selected" alla voce che seleziono ogni volta. il click non funziona perchè il tag option non viene visto nell'HTML, va usato il "change".
+
+
+  $('.custom-select').change(function () {
+    console.log(this); // tolgo la classe main-visible a tutte le card visible
+
+    $('.cds-container.containerx').removeClass('main-visible'); // uso "option:selected" per assegnare l'atrtibuto "selected" all'option che vado a selezionare ogni volta. Quindi gli leggo il valore.
+
+    var data_genere = $(this).children('option:selected').val(); // faccio combaciare il valore che ho letto prima(che contiene il genere musicale), con l'attributo data-genere presente nel container, che avrà come valore il genere giusto perchè glie lo vado a mettere con handlebars a priori.
+
+    $('.cds-container.containerx[data-autore="' + data_genere + '"]').addClass('main-visible'); // nel caso seleziono la prima voce - "all" - li faccio apparire tutti
+
+    if ($(this).children('option:selected').attr('data')) {
+      $('.cds-container.containerx').addClass('main-visible');
+    }
+  });
 });
 
 /***/ }),
