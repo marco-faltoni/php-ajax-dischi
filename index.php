@@ -43,7 +43,6 @@
         <div class="disco">
             <?php
                 foreach ($dischi as $lista) {
-                
             ?>
             <div class="cds-container containerx main-visible" data-genere = '{{genre}}'>
                 <div class="cd">
