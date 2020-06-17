@@ -10,8 +10,11 @@ $(document).ready(function() {
     var template = Handlebars.compile(template_html);
 
     $.ajax({
-        'url':'database/db.php',
+        'url':'../database/db-ajax.php',
         'method': 'GET',
+        'data': {
+            'arrivato': 'ok'
+        },
         'success': function(data){
             // assegno, alla variabile creata sopra, il valore response di "data", che ha all'interno 10 oggetti dentro un array. quindi in definita mi estraggo un array con 10 oggetti.
             array_dischi = data;

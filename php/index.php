@@ -1,5 +1,5 @@
 <?php
-    require "database/db.php";
+    require "../database/db.php";
 
     // foreach ($dischi as $lista) {
     //     var_dump($lista);
@@ -20,7 +20,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="public/app.css">
+        <link rel="stylesheet" href="../public/app.css">
     </head>
 
     <body>
@@ -46,16 +46,17 @@
             ?>
             <div class="cds-container containerx main-visible" data-genere = '{{genre}}'>
                 <div class="cd">
-                    <img src=<?php echo $lista['poster']?> alt="">
-                    <h3><?php echo $lista['title']?></h3>
-                    <span class="author"><?php echo $lista['author']?></span>
-                    <span class="year"><?php echo $lista['year']?></span>
+                    <img src=<?php echo $lista['poster'];?> alt="">
+                    <h3><?php echo $lista['title'];?></h3>
+                    <span class="author"><?php echo $lista['author'];?></span>
+                    <span class="year"><?php echo $lista['year'];?></span>
                 </div>
-            </div><?php
-        }
-        ?>
+            </div>
+            <?php
+            }
+            ?>
         </div>
 
-        <script src="public/app.js"></script>
+        <script src="../public/app.js"></script>
     </body>
 </html>
