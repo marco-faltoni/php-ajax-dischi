@@ -20,34 +20,21 @@ $(document).ready(function() {
                 array_dischi = data;
                 // richiamo la funzione di associazione data - disco
                 associo_dischi();
+
+                for (let i = 0; i < data.length; i++) {
+                
+                    var option_container = $('.custom-select');
+    
+                    var artisti = data[i];
+    
+                    option_container.append('<option value="' + artisti.author + '">' + artisti.author + '</option>');
+                }
             },
             'error': function() {
                 alert('si è verificato un errore');
             },
         });
     }
-
-    $.ajax({
-        'url':'../database/db.php',
-        'method': 'GET',
-        'data': {
-            'arrivato': 'ok'
-        },
-        'success': function(data){
-
-            for (let i = 0; i < data.length; i++) {
-                
-                var option_container = $('.custom-select');
-
-                var artisti = data[i];
-
-                option_container.append('<option value="' + artisti.author + '">' + artisti.author + '</option>');
-            }
-        },
-        'error': function() {
-            alert('si è verificato un errore');
-        },
-    });
 
     function associo_dischi(){
         // con il ciclo for vado ad assegnare, ad ogni proprietà che creo dentro il mio oggetto vuoto, un valore che deve matchare con quello presente nei data che ho estratto prima. il mio ciclo for dura tanto quanto la lunghezza dell'array che ho estratto (quindi 10).
