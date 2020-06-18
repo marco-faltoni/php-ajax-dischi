@@ -19,16 +19,16 @@
 
         <div class="select">
             <select class="custom-select">
-                <option selected data = "tutto">Scegli il genere musicale - All</option>
+                <option selected data = "tutto">Scegli l'Artista - All</option>
             </select>
         </div>
 
-        <div class="disco">
+        <div class="disco" value='ajax'>
 
         </div>
 
         <script id="template-handlebars" type="text/x-handlebars-template">
-            <div class="cds-container containerx main-visible" data-autore = '{{author}}'>
+            <div class="cds-container containerx main-visible" data-autore = '{{author}}' >
                 <div class="cd">
                     <img src="{{poster}}" alt="">
                     <h3>{{title}}</h3>

@@ -91,29 +91,36 @@
   !*** ./src/js/app.js ***!
   \***********************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 $(document).ready(function () {
   // creo una var vuota da richiamare dentro l'AJAX
   var array_dischi; // creo una variabile uguale ad un oggetto vuoto.
 
   var disco1 = {};
-  $.ajax({
-    'url': '../database/db.php',
-    'method': 'GET',
-    'data': {
-      'arrivato': 'ok'
-    },
-    'success': function success(data) {
-      // assegno, alla variabile creata sopra, il valore response di "data", che ha all'interno 10 oggetti dentro un array. quindi in definita mi estraggo un array con 10 oggetti.
-      array_dischi = data; // richiamo la funzione di associazione data - disco
+  var val = $('.disco').val();
 
-      associo_dischi();
-    },
-    'error': function error() {
-      alert('si è verificato un errore');
-    }
-  });
+  if (_typeof(val) !== ( true ? "undefined" : undefined) && val !== false) {
+    $.ajax({
+      'url': '../database/db.php',
+      'method': 'GET',
+      'data': {
+        'arrivato': 'ok'
+      },
+      'success': function success(data) {
+        // assegno, alla variabile creata sopra, il valore response di "data", che ha all'interno 10 oggetti dentro un array. quindi in definita mi estraggo un array con 10 oggetti.
+        array_dischi = data; // richiamo la funzione di associazione data - disco
+
+        associo_dischi();
+      },
+      'error': function error() {
+        alert('si è verificato un errore');
+      }
+    });
+  }
+
   $.ajax({
     'url': '../database/db.php',
     'method': 'GET',

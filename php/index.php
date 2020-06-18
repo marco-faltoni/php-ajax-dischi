@@ -32,7 +32,7 @@
 
         <div class="select">
             <select class="custom-select">
-                <option selected data = "tutto">Scegli il genere musicale - All</option>
+                <option selected data = "tutto">Scegli l'Artista - All</option>
             </select>
         </div>
 

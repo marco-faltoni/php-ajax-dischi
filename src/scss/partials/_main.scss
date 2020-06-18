@@ -1,0 +1,86 @@
+* {
+    @include generali;
+}
+
+body {
+    background: $colore_background;
+    min-height: 100vh;
+
+    header {
+        width: 100%;
+        height: 70px;
+        background: $colore_header;
+    
+        img {
+            height: 50px;
+            margin-top: 10px;
+        }
+    
+        .cont {
+            @include my_flex(space-between);
+        }
+        
+    }
+
+    .select {
+        width: 50%;
+        margin: 20px auto;
+    }
+    
+    .disco {
+        width: 80%;
+        height: 1200px;
+        @include my_flex(center);
+        flex-wrap: wrap;
+        margin: auto;
+    
+        .cds-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            /* padding: 100px 0; */
+        }
+    
+        .main-visible {
+            display: block;
+        }
+        
+    }
+}
+
+// .containerx {
+//     /* width: 1070px;
+//     height: 100%;
+//     margin: 0 auto; */
+// }
+
+.cd {
+    @include my_flex(flex-start, center, column);
+    width: 230px;
+    height: 410px;
+    padding: 20px;
+    margin: 10px 20px;
+    background: $colore_header;
+    text-align: center;
+
+    img {
+        max-width: 100%;
+    }
+
+    h3 {
+        margin: 20px 0;
+        color: $colore_titolo;
+        font-size: 22px;
+        text-transform: uppercase;
+    }
+
+    span.author {
+        color: $colore_sottotitolo;
+        font-size: 20px;
+    }
+
+    span.year {
+        color: $colore_sottotitolo;
+    }
+}

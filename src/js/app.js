@@ -5,22 +5,27 @@ $(document).ready(function() {
     // creo una variabile uguale ad un oggetto vuoto.
     var disco1 = {};
     
-    $.ajax({
-        'url':'../database/db.php',
-        'method': 'GET',
-        'data': {
-            'arrivato': 'ok'
-        },
-        'success': function(data){
-            // assegno, alla variabile creata sopra, il valore response di "data", che ha all'interno 10 oggetti dentro un array. quindi in definita mi estraggo un array con 10 oggetti.
-            array_dischi = data;
-            // richiamo la funzione di associazione data - disco
-            associo_dischi();
-        },
-        'error': function() {
-            alert('si è verificato un errore');
-        },
-    });
+
+    var val = $('.disco').val();
+
+    if (typeof val !== typeof undefined && val !== false) {
+        $.ajax({
+            'url':'../database/db.php',
+            'method': 'GET',
+            'data': {
+                'arrivato': 'ok'
+            },
+            'success': function(data){
+                // assegno, alla variabile creata sopra, il valore response di "data", che ha all'interno 10 oggetti dentro un array. quindi in definita mi estraggo un array con 10 oggetti.
+                array_dischi = data;
+                // richiamo la funzione di associazione data - disco
+                associo_dischi();
+            },
+            'error': function() {
+                alert('si è verificato un errore');
+            },
+        });
+    }
 
     $.ajax({
         'url':'../database/db.php',

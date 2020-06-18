@@ -24,6 +24,8 @@ body header img {
 body header .cont {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
 }
 
 body .select {
@@ -35,8 +37,10 @@ body .disco {
   width: 80%;
   height: 1200px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin: auto;
 }
 
