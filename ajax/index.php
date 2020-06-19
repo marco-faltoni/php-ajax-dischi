@@ -27,13 +27,17 @@
 
         </div>
 
+        <script id="template2-handlebars" type="text/x-handlebars-template">
+            <option value="{{autore}}">{{autore}}</option>
+        </script>
+
         <script id="template-handlebars" type="text/x-handlebars-template">
-            <div class="cds-container containerx main-visible" data-autore = '{{author}}' >
+            <div class="cds-container containerx main-visible" data-autore = '{{autore}}' >
                 <div class="cd">
-                    <img src="{{poster}}" alt="">
-                    <h3>{{title}}</h3>
-                    <span class="author">{{author}}</span>
-                    <span class="year">{{year}}</span>
+                    <img src="{{copertina}}" alt="">
+                    <h3>{{titolo}}</h3>
+                    <span class="autore">{{autore}}</span>
+                    <span class="anno">{{anno}}</span>
                 </div>
             </div>
         </script>
